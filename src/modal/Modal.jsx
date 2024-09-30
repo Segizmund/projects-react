@@ -4,7 +4,7 @@ import '../modal/modal-style.css';
 const Modal = () =>{
     const [isOpen, setIsOpen] = useState(false);
 
-    const Modal =({isOpen, setIsOpen}) => (
+    const ModalWindow =({isOpen, setIsOpen, content}) => (
         <div className={'modal bg-[#EEEEEE] max-w-[40%] mx-auto px-[40px] py-[30px] rounded-[15px]'}>
             <div className={'flex justify-end'}>
                 <svg onClick={() => setIsOpen(false)} width="25px" height="25px" viewBox="0 0 24 24" fill="none"
@@ -16,11 +16,7 @@ const Modal = () =>{
                 </svg>
             </div>
             <h1 className={'font-bold mb-3'}>Это модальное окно</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consequuntur eos,
-                eum ex fugit ipsam itaque laboriosam laudantium molestias quisquam quod ratione
-                recusandae rem sit sunt suscipit ut voluptate?
-            </p>
+            {content}
         </div>
     );
     return (
@@ -31,7 +27,16 @@ const Modal = () =>{
                     окно
                 </button>
                 <div className={`overlay animated ${isOpen ? 'show' : ''}`}>
-                    <Modal isOpen={isOpen} setIsOpen={setIsOpen}/>
+                    <ModalWindow isOpen={isOpen} setIsOpen={setIsOpen}
+                                 content={
+                        <p>
+                        <h1>Это динамический контент</h1>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consequuntur doloremque
+                        explicabo fuga,
+                        harum iure laboriosam laudantium maiores molestiae nam necessitatibus perferendis quibusdam
+                        quidem quod rem repellendus sed veritatis voluptates.
+                        </p>
+                    }/>
                 </div>
             </div>
         </>
