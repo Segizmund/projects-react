@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import Header from './header/header';
-import Layout from './layout/Layout';
+
+
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+
+import App from './App';
+import Layout from './layout/Layout';
+import Counter from './counter/Counter';
+import Modal from './modal/Modal';
 
 const router = createBrowserRouter([
     {
@@ -17,7 +21,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/counter",
-                element: <div>О нас</div>
+                element: <Counter/>,
+            },
+            {
+                path: "/modal",
+                element: <Modal/>,
             }
         ]
     }

@@ -5,7 +5,9 @@ const Layout = () =>{
     return(
         <>
             <Header />
-            <Outlet />
+            <section className={'container mx-auto text-[#00ADB5]'}>
+                <Outlet />
+            </section>
         </>
     )
 }
