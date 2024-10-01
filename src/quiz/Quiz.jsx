@@ -23,14 +23,13 @@ const questions = [
     },
 ];
 
-function Result({correct}) {
+function Result({correct,setCorrect,step,setStep}) {
     return (
         <div className="result">
             <img className={'mb-4'} src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
-            <h2>Вы отгадали {correct} ответа из {questions.length}</h2>
-            <a href="/quiz">
-                <button>Попробовать снова</button>
-            </a>
+            <h2>Вы отгадали {correct} из {questions.length}</h2>
+            <button onClick={()=>{setCorrect(correct = 0);
+                setStep(step = 0)}}>Попробовать снова</button>
         </div>
     );
 }
@@ -59,7 +58,7 @@ function Game({question, onClickVariant, step}) {
 function Quiz() {
     const [step,setStep] = useState(0);
     const [correct,setCorrect] = useState(0);
-
+    console.log(correct);
     const question  = questions[step];
 
     const onClickVariant = (index) => {
@@ -74,7 +73,7 @@ function Quiz() {
             {
                 step != questions.length ?  ( <Game step={step} question={question} onClickVariant={onClickVariant}/>
                 ) : (
-                    <Result correct = {correct} />
+                    <Result correct = {correct} setCorrect={setCorrect} step={step} setStep={setStep}/>
                 )
             }
         </div>
