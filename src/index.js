@@ -10,6 +10,7 @@ import App from './App';
 import Layout from './layout/Layout';
 import Counter from './counter/Counter';
 import Modal from './modal/Modal';
+import Quiz from './quiz/Quiz';
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
             {
                 path: "/modal",
                 element: <Modal/>,
-            }
+            },
+            {
+                path: "/quiz",
+                element: <Quiz/>,
+            },
         ]
     }
 ]);
