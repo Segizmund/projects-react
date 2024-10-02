@@ -10,6 +10,7 @@ function Header() {
                     <NavLink to={'/counter'}>Сетчик</NavLink>
                     <NavLink to={'/modal'}>Модальное окно</NavLink>
                     <NavLink to={'/quiz'}>Квиз</NavLink>
+                    <NavLink to={'/users'}>Пользователи</NavLink>
                 </nav>
             </div>
         </header>

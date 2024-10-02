@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Users-style.css';
 const User = () => (
     <li>
         <div>
@@ -14,7 +14,7 @@ const User = () => (
                 </p>
             </div>
         </div>
-        <img className="action" src="/assets/plus.svg" alt="Action" />
+        <img className="action" src="/plus.svg" alt="Action" />
     </li>
 );
 

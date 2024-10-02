@@ -11,6 +11,7 @@ import Layout from './layout/Layout';
 import Counter from './counter/Counter';
 import Modal from './modal/Modal';
 import Quiz from './quiz/Quiz';
+import UserApp from './users/Users-app';
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
             {
                 path: "/quiz",
                 element: <Quiz/>,
+            },
+            {
+                path: "/users",
+                element: <UserApp/>,
             },
         ]
     }
