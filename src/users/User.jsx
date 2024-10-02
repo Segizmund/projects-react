@@ -1,6 +1,6 @@
 import React from 'react';
 import './Users-style.css';
-const User = ({id, email, first_name, last_name, avatar}) => (
+const User = ({id, email, first_name, last_name, avatar, onClickInvite, isInvited}) => (
     <li>
         <div>
             <img className="avatar" src={avatar} alt="User" />
@@ -14,7 +14,7 @@ const User = ({id, email, first_name, last_name, avatar}) => (
                 </p>
             </div>
         </div>
-        <img className="action" src="/plus.svg" alt="Action" />
+        <img onClick={onClickInvite} className="action" src={`/${isInvited ? 'minus' : 'plus'}.svg`} alt="Action" />
     </li>
 );
 
