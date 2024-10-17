@@ -13,6 +13,10 @@ const   Consumer = (
         onClickSendInvites,
     }
 ) => {
+    const filteredItems = items.filter((obj) => {
+        const fullName = (obj.first_name + ' ' + obj.last_name).toLowerCase();
+        return fullName.includes(searchValue.toLowerCase()) || obj.email.toLowerCase().includes(searchValue.toLowerCase());
+    });
     return (
         <>
             <div className="search">
@@ -33,16 +37,18 @@ const   Consumer = (
                 </div>
             ) : (
                 <ul className="users-list">
-                    {
-                        items.filter((obj) => {
-                            const fullName = (obj.first_name +' '+ obj.last_name).toLowerCase();
-
-                            return fullName.includes(searchValue.toLowerCase()) || obj.email.toLowerCase().includes(searchValue.toLowerCase());
-
-                        }).map((obj) => (
-                            <User onClickInvite={onClickInvite} isInvited={invites.includes(obj.id)} key={obj.id} {...obj}/>
+                    {filteredItems.length > 0 ? (
+                        filteredItems.map((obj) => (
+                            <User
+                                onClickInvite={onClickInvite}
+                                isInvited={invites.includes(obj.id)}
+                                key={obj.id}
+                                {...obj}
+                            />
                         ))
-                    }
+                    ) : (
+                        <p>Нет совпадений.</p>
+                    )}
                 </ul>
             )}
             {
