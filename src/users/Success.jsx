@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Success = ({ count }) => {
+const Success = (
+    {   count,
+        onClickReset
+    }
+) => {
     return (
-        <div class="success-block">
+        <div className="success-block">
             <img src="/success.svg" alt="Success" />
             <h3>Успешно!</h3>
             <p>Всем {count} пользователям отправлено приглашение.</p>
-            <button className="send-invite-btn">Назад</button>
+            <button onClick={onClickReset} className="send-invite-btn">Назад</button>
         </div>
     );
 };

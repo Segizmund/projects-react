@@ -14,7 +14,7 @@ const User = ({id, email, first_name, last_name, avatar, onClickInvite, isInvite
                 </p>
             </div>
         </div>
-        <img onClick={onClickInvite} className="action" src={`/${isInvited ? 'minus' : 'plus'}.svg`} alt="Action" />
+        <img onClick={()=>onClickInvite(id)} className="action" src={`/${isInvited ? 'minus' : 'plus'}.svg`} alt="Action" />
     </li>
 );
 
