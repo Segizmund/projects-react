@@ -12,6 +12,7 @@ import Counter from './counter/Counter';
 import Modal from './modal/Modal';
 import Quiz from './quiz/Quiz';
 import UserApp from './users/Users-app';
+import Converter from './converter/Сonverter';
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: "/users",
                 element: <UserApp/>,
+            },
+            {
+                path: "/converter",
+                element: <Converter/>,
             },
         ]
     }

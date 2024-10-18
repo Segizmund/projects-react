@@ -11,6 +11,7 @@ function Header() {
                     <NavLink to={'/modal'}>Модальное окно</NavLink>
                     <NavLink to={'/quiz'}>Квиз</NavLink>
                     <NavLink to={'/users'}>Пользователи</NavLink>
+                    <NavLink to={'/converter'}>Конвертер валют</NavLink>
                 </nav>
             </div>
         </header>
