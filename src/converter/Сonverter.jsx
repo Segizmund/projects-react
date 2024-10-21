@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import { Block } from './Block';
+import Block  from './Block';
 import './Converter-style.css';
 
 function Converter() {
@@ -20,7 +20,6 @@ function Converter() {
             alert('Не получить информацию');
         });
     },[]);
-    console.log(valutes.current);
     const onChangeFromPrice = (value) => {
         const price = value / valutes.current[fromCurrency];
         const result = price * valutes.current[toCurrency];
@@ -36,7 +35,7 @@ function Converter() {
 
     useEffect(() => {
         onChangeFromPrice(fromPrice)
-    }, [fromCurrency,]);
+    }, [fromCurrency]);
 
     useEffect(() => {
         onChangeToPrice(toPrice)
@@ -49,12 +48,14 @@ function Converter() {
                 currency={fromCurrency}
                 onChangeCurrency={setFromCurrency}
                 onChangeValue={onChangeFromPrice}
+                valutes={valutes.current}
             />
             <Block
                 value={toPrice}
                 currency={toCurrency}
                 onChangeCurrency={setToCurrency}
                 onChangeValue={onChangeToPrice}
+                valutes={valutes.current}
             />
         </div>
     );

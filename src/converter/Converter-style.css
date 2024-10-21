@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 .Converter {
+    min-height: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 30px;
@@ -41,7 +42,7 @@
         cursor: pointer;
         justify-content: center;
         flex: 1;
-
+        transition: .3s linear;
         &:hover {
             background-color: rgba(0, 0, 0, 0.03);
         }
@@ -66,5 +67,60 @@
                 height: 16px;
             }
         }
+    }
+}
+.dropdown-valute{
+    left: 30.7%;
+    display: flex;
+    position: absolute;
+    background-color: #FFFFFF;
+    max-height: 400px;
+    max-width: 740px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s linear;
+
+    &.show{
+        opacity: 1;
+        visibility: visible;
+    }
+    &::-webkit-scrollbar {
+        width: 3px;               /* ширина scrollbar */
+    }
+    &::-webkit-scrollbar-track {
+        background: #FFFFFF;        /* цвет дорожки */
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #00ADB5;    /* цвет плашки */
+        border-radius: 20px;       /* закругления плашки */;
+    }
+}
+.item-valute{
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+.item-valute:hover{
+    background-color: #16B67F;
+    color: #FFFFFF;
+}
+.currency-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    width: 33.33%;
+}
+.btn-more-valute{
+
+    transition: .3s linear;
+
+    &.active{
+        background-color: #16b67f;
+        fill: #FFFFFF;
     }
 }
