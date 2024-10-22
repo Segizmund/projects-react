@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 .Converter {
+    position: relative;
     min-height: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -70,7 +71,7 @@
     }
 }
 .dropdown-valute{
-    left: 30.7%;
+   left: 30px;
     display: flex;
     position: absolute;
     background-color: #FFFFFF;
@@ -88,14 +89,14 @@
         visibility: visible;
     }
     &::-webkit-scrollbar {
-        width: 3px;               /* ширина scrollbar */
+        width: 3px;
     }
     &::-webkit-scrollbar-track {
-        background: #FFFFFF;        /* цвет дорожки */
+        background: #FFFFFF;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #00ADB5;    /* цвет плашки */
-        border-radius: 20px;       /* закругления плашки */;
+        background-color: #00ADB5;
+        border-radius: 20px;
     }
 }
 .item-valute{

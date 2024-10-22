@@ -9,6 +9,12 @@ function Converter() {
     const [toPrice, setToPrice] = useState(1)
     const valutes = useRef({})
 
+    const [isOpenFrom, setIsOpenFrom] = useState(false);
+    const [isOpenTo, setIsOpenTo] = useState(false);
+
+    const [defaultFromCurrencies,setDefaultFromCurrencies] =useState(['RUB', 'USD', 'EUR', 'GBP'])
+    const [defaultToCurrencies,setDefaultToCurrencies] =useState(['RUB', 'USD', 'EUR', 'GBP'])
+
     useEffect(() =>{
         fetch('https://v6.exchangerate-api.com/v6/9419682b734bdcca0dce1bd5/latest/USD')
             .then((res) => res.json())
@@ -41,21 +47,41 @@ function Converter() {
         onChangeToPrice(toPrice)
     }, [toCurrency]);
 
+    const handleBlockClick = (index) => {
+        if (index === 1 && isOpenTo) {
+            setIsOpenTo(false);
+        } else if (index === 2 && isOpenFrom) {
+            setIsOpenFrom(false);
+        }
+
+        if (index === 1) {
+            setIsOpenFrom(prevIsOpen => !prevIsOpen);
+        } else if (index === 2) {
+            setIsOpenTo(prevIsOpen => !prevIsOpen);
+        }
+    };
+
     return (
         <div className="Converter">
             <Block
+                defaultCurrencies={defaultFromCurrencies}
                 value={fromPrice}
                 currency={fromCurrency}
                 onChangeCurrency={setFromCurrency}
                 onChangeValue={onChangeFromPrice}
                 valutes={valutes.current}
+                isOpen={isOpenFrom}
+                setIsOpen={() => handleBlockClick(1)}
             />
             <Block
+                defaultCurrencies={defaultToCurrencies}
                 value={toPrice}
                 currency={toCurrency}
                 onChangeCurrency={setToCurrency}
                 onChangeValue={onChangeToPrice}
                 valutes={valutes.current}
+                isOpen={isOpenTo}
+                setIsOpen={() => handleBlockClick(2)}
             />
         </div>
     );

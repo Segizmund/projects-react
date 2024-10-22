@@ -1,21 +1,27 @@
 import React, {useState} from 'react';
 
-const defaultCurrencies = ['RUB', 'USD', 'EUR', 'GBP'];
- const Block = ({ value, currency, onChangeValue, onChangeCurrency,valutes}) => {
-     const [isOpen, setIsOpen] = useState(false);
+ const Block = ({defaultCurrencies, value, currency, onChangeValue, onChangeCurrency, valutes, isOpen, setIsOpen}) => {
      const currencyList = Object.entries(valutes).reduce((acc, [currency], index) => {
-         const column = index % 13; // Определяем столбец для элемента
-         acc[column] = acc[column] || []; // Создаем массив для столбца, если он пуст
+         const column = index % 13;
+         acc[column] = acc[column] || [];
          acc[column].push(
              <li className={'item-valute'}
                  key={currency}
-                 onClick={() => onChangeCurrency(currency)}
+                 onClick={() => {
+                     onChangeCurrency(currency);
+                     onChangedefaultCurrencies(currency);
+                     setIsOpen(false);
+                 }
+             }
              >
                  {currency}
              </li>
          );
          return acc;
      }, []);
+     const onChangedefaultCurrencies = (currency) => {
+         defaultCurrencies[defaultCurrencies.length - 1] = currency;
+     }
      return (
          <div className="block">
              <ul className="currencies">
