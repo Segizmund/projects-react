@@ -7,7 +7,7 @@ function Header() {
             <div className="container mx-auto items-center justify-between py-3">
                 <nav className={'flex gap-5'}>
                     <NavLink to={'/'}>Главная</NavLink>
-                    <NavLink to={'/counter'}>Сетчик</NavLink>
+                    <NavLink to={'/counter'}>Счетчик</NavLink>
                     <NavLink to={'/modal'}>Модальное окно</NavLink>
                     <NavLink to={'/quiz'}>Квиз</NavLink>
                     <NavLink to={'/users'}>Пользователи</NavLink>
