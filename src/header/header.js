@@ -12,6 +12,7 @@ function Header() {
                     <NavLink to={'/quiz'}>Квиз</NavLink>
                     <NavLink to={'/users'}>Пользователи</NavLink>
                     <NavLink to={'/converter'}>Конвертер валют</NavLink>
+                    <NavLink to={'/photos'}>Коллекция фотографий</NavLink>
                 </nav>
             </div>
         </header>

@@ -13,6 +13,7 @@ import Modal from './modal/Modal';
 import Quiz from './quiz/Quiz';
 import UserApp from './users/Users-app';
 import Converter from './converter/Сonverter';
+import Photos from "./photos/Photos";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path: "/converter",
                 element: <Converter/>,
+            },
+            {
+                path: "/photos",
+                element: <Photos/>,
             },
         ]
     }
